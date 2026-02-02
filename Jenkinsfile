@@ -28,7 +28,6 @@ pipeline {
 
     post {
         always {
-            // Test sonucu ne olursa olsun raporları sakla
             cucumber 'target/cucumber.json'
             junit 'target/surefire-reports/*.xml'
             
