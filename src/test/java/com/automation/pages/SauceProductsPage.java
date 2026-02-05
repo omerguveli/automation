@@ -16,8 +16,6 @@ public class SauceProductsPage {
     public WebElement cartBadge;
 
     public void addProductToCart(String productName) {
-        // Dynamic locator: The add to cart button ID depends on the product name
-        // Example: Sauce Labs Backpack -> add-to-cart-sauce-labs-backpack
         String buttonId = "add-to-cart-" + productName.toLowerCase().replace(" ", "-");
         DriverFactory.getDriver().findElement(By.id(buttonId)).click();
     }

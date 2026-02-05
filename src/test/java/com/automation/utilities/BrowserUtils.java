@@ -8,27 +8,26 @@ import java.time.Duration;
 
 public class BrowserUtils {
 
-    /**
-     * Waits for the visibility of the element on the page.
-     * Use this when interaction fails because element is not yet visible.
-     * 
-     * @param element The WebElement to wait for
-     * @param seconds Max time to wait in seconds
-     */
     public static void waitForVisibility(WebElement element, int seconds) {
         WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    /**
-     * Waits for the element to be clickable.
-     * Use this for buttons that might be covered or disabled initially.
-     * 
-     * @param element The WebElement to wait for
-     * @param seconds Max time to wait in seconds
-     */
     public static void waitForClickability(WebElement element, int seconds) {
         WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(seconds));
         wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public static void waitForPresence(org.openqa.selenium.By locator, int seconds) {
+        WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(seconds));
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+
+    public static void sleep(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

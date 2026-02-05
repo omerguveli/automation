@@ -36,7 +36,6 @@ public class SauceLoginPage {
     }
 
     public void clickLogin() {
-        // Wait up to 10 seconds for the button to be visible, then click
         com.automation.utilities.BrowserUtils.waitForVisibility(loginButton, 10);
         loginButton.click();
     }

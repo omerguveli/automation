@@ -17,11 +17,10 @@ public class DriverFactory {
 
     public static WebDriver getDriver() {
         if (driverPool.get() == null) {
-            // Priority: System Property (Command Line) > Config File > Default Request
             String browser = System.getProperty("browser") != null ? System.getProperty("browser")
                     : ConfigReader.getProperty("browser");
             if (browser == null)
-                browser = "chrome"; // Default fallback
+                browser = "chrome";
 
             switch (browser.toLowerCase()) {
                 case "chrome":

@@ -6,7 +6,6 @@ import io.restassured.specification.RequestSpecification;
 
 public class ApiUtils {
 
-    // Base URI setup method (can be called from Hooks)
     public static void setBaseURI(String baseURI) {
         RestAssured.baseURI = baseURI;
     }
