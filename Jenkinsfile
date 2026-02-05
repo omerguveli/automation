@@ -19,9 +19,15 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('API Tests') {
             steps {
-                sh 'mvn test'
+                sh 'mvn test -Dtest=ApiTestRunner'
+            }
+        }
+
+        stage('UI Tests') {
+            steps {
+                sh 'mvn test -Dtest=UiTestRunner'
             }
         }
     }
