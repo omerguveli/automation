@@ -1,5 +1,6 @@
-package com.automation.utilities;
+package com.automation.utilities.ui;
 
+import com.automation.utilities.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

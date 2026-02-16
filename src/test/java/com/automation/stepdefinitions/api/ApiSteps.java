@@ -1,6 +1,6 @@
-package com.automation.stepdefinitions;
+package com.automation.stepdefinitions.api;
 
-import com.automation.utilities.ApiUtils;
+import com.automation.utilities.api.ApiUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

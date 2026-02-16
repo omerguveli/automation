@@ -1,4 +1,4 @@
-package com.automation.utilities;
+package com.automation.utilities.ui;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
