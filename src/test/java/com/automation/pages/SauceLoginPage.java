@@ -1,6 +1,6 @@
 package com.automation.pages;
 
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.ui.DriverFactory;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -36,7 +36,7 @@ public class SauceLoginPage {
     }
 
     public void clickLogin() {
-        com.automation.utilities.BrowserUtils.waitForVisibility(loginButton, 10);
+        com.automation.utilities.ui.BrowserUtils.waitForClickability(loginButton, 10);
         loginButton.click();
     }
 

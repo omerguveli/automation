@@ -1,6 +1,6 @@
 package com.automation.pages;
 
-import com.automation.utilities.DriverFactory;
+import com.automation.utilities.ui.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +17,9 @@ public class SauceProductsPage {
 
     public void addProductToCart(String productName) {
         String buttonId = "add-to-cart-" + productName.toLowerCase().replace(" ", "-");
-        DriverFactory.getDriver().findElement(By.id(buttonId)).click();
+        org.openqa.selenium.By buttonLocator = By.id(buttonId);
+        com.automation.utilities.ui.BrowserUtils.waitForPresence(buttonLocator, 10);
+        DriverFactory.getDriver().findElement(buttonLocator).click();
     }
 
     public int getCartItemCount() {
