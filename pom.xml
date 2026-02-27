@@ -90,7 +90,15 @@
       <version>2.21.1</version>
     </dependency>
 
-     <!-- SLF4J Simple Binding (to silence SLF4J warning) -->
+    <!-- Lombok to reduce boilerplate code -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.30</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- SLF4J Simple Binding (to silence SLF4J warning) -->
     <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-simple</artifactId>

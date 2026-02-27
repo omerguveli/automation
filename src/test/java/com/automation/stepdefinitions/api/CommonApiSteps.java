@@ -1,24 +1,18 @@
 package com.automation.stepdefinitions.api;
 
-import com.automation.utilities.api.ApiUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
-public class ApiSteps {
+public class CommonApiSteps {
 
-    private Response response;
+    protected static Response response;
+    protected static String baseURI;
 
     @Given("I set the base URI to {string}")
     public void i_set_the_base_uri_to(String baseURI) {
-        ApiUtils.setBaseURI(baseURI);
-    }
-
-    @When("I send a GET request to {string}")
-    public void i_send_a_get_request_to(String endpoint) {
-        response = ApiUtils.getRequest(endpoint);
+        CommonApiSteps.baseURI = baseURI;
     }
 
     @Then("the response status code should be {int}")
