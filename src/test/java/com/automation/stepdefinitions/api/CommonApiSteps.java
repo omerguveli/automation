@@ -1,7 +1,9 @@
 package com.automation.stepdefinitions.api;
 
+import com.automation.utilities.api.ApiUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
@@ -23,5 +25,10 @@ public class CommonApiSteps {
     @Then("the response should contain {string}")
     public void the_response_should_contain(String content) {
         Assert.assertTrue(response.getBody().asString().contains(content));
+    }
+
+    @When("I send a POST request to {string} with body:")
+    public void i_send_a_post_request_to_with_body(String endpoint, String body) {
+        response = ApiUtils.postRequest(endpoint, body);
     }
 }
