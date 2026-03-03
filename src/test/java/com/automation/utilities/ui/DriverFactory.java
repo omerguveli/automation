@@ -1,5 +1,6 @@
 package com.automation.utilities.ui;
 
+import com.automation.utilities.Log;
 import com.automation.utilities.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -18,10 +19,15 @@ public class DriverFactory {
 
     public static WebDriver getDriver() {
         if (driverPool.get() == null) {
-            String browser = System.getProperty("browser") != null ? System.getProperty("browser")
-                    : ConfigReader.getProperty("browser");
-            if (browser == null)
+            String browser = System.getProperty("browser");
+            if (browser == null) {
+                browser = ConfigReader.getProperty("browser");
+            }
+            if (browser == null) {
                 browser = "chrome";
+            }
+
+            Log.info("Initializing browser: " + browser);
 
             switch (browser.toLowerCase()) {
                 case "chrome":
@@ -37,6 +43,7 @@ public class DriverFactory {
                     driverPool.set(new EdgeDriver());
                     break;
                 default:
+                    Log.error("Browser not supported: " + browser);
                     throw new RuntimeException("Browser not supported: " + browser);
             }
             driverPool.get().manage().window().maximize();
@@ -47,6 +54,7 @@ public class DriverFactory {
 
     public static void closeDriver() {
         if (driverPool.get() != null) {
+            Log.info("Closing browser...");
             driverPool.get().quit();
             driverPool.remove();
         }

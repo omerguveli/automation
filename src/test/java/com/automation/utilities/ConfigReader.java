@@ -9,15 +9,13 @@ public class ConfigReader {
     private static Properties properties;
 
     static {
-        try {
-            String path = "src/test/resources/configuration.properties";
-            FileInputStream input = new FileInputStream(path);
+        try (FileInputStream input = new FileInputStream("src/test/resources/configuration.properties")) {
             properties = new Properties();
             properties.load(input);
-            input.close();
+            Log.info("Configuration properties loaded successfully.");
         } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Configuration.properties file failed to load: " + e.getMessage());
+            Log.error("Configuration.properties file failed to load: " + e.getMessage());
+            throw new RuntimeException("Configuration.properties file failed to load", e);
         }
     }
 

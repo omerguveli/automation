@@ -3,9 +3,10 @@
 This is a test automation framework built using Selenium WebDriver, Cucumber, and JUnit 4.
 
 ## Prerequisites
-- Java JDK 11 or higher
+- Java JDK 21
 - Maven 3.6 or higher
 - Chrome Browser (or Firefox/Edge)
+- Lombok plugin (if using IDE)
 
 ## Project Structure
 - `src/test/java/com/automation/pages`: Page Object Model classes
@@ -16,9 +17,13 @@ This is a test automation framework built using Selenium WebDriver, Cucumber, an
     - `TestRunner.java`: Runs all tests
     - `UiTestRunner.java`: Runs only UI tests
     - `ApiTestRunner.java`: Runs only API tests
-- `src/test/java/com/automation/utilities`: Framework utilities
-    - `ui`: DriverFactory, BrowserUtils
-    - `api`: ApiUtils
+- `src/test/java/com/automation/models`: POJOs for API testing (using Lombok)
+- `src/test/java/com/automation/services`: Service layer for API abstraction
+- `src/test/java/com/automation/utilities`:
+    - `Log.java`: Centralized Log4j2 utility
+    - `ConfigReader.java`: Configuration property manager
+    - `ui/DriverFactory.java`: Selenium WebDriver manager
+    - `api/ApiUtils.java`: RestAssured request specification builder
 - `src/test/resources/features`: Gherkin feature files
 
 ## How to Run Tests

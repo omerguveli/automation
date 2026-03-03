@@ -2,6 +2,7 @@ package com.automation.stepdefinitions.api;
 
 import com.automation.models.api.User;
 import com.automation.services.api.UserService;
+import com.automation.utilities.Log;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -12,6 +13,7 @@ public class UserSteps {
 
     @When("I create a new user with name {string} and email {string}")
     public void i_create_a_new_user_with_name_and_email(String name, String email) {
+        Log.info("Creating a new user with name: " + name);
         userService = new UserService(CommonApiSteps.baseURI);
         User userRequest = User.builder()
                 .name(name)
@@ -23,18 +25,21 @@ public class UserSteps {
 
     @When("I delete user with id {int}")
     public void i_delete_user_with_id(int id) {
+        Log.info("Deleting user with ID: " + id);
         userService = new UserService(CommonApiSteps.baseURI);
         CommonApiSteps.response = userService.deleteUser(id);
     }
 
     @When("I send a GET request for all users")
     public void i_send_a_get_request_for_all_users() {
+        Log.info("Fetching all users");
         userService = new UserService(CommonApiSteps.baseURI);
         CommonApiSteps.response = userService.getAllUsers();
     }
 
     @When("I send a GET request for user {int}")
     public void i_send_a_get_request_for_user(int id) {
+        Log.info("Fetching user with ID: " + id);
         userService = new UserService(CommonApiSteps.baseURI);
         CommonApiSteps.response = userService.getUser(id);
     }

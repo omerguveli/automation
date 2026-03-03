@@ -1,5 +1,6 @@
 package com.automation.stepdefinitions.api;
 
+import com.automation.utilities.Log;
 import com.automation.utilities.api.ApiUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,6 +15,7 @@ public class CommonApiSteps {
 
     @Given("I set the base URI to {string}")
     public void i_set_the_base_uri_to(String baseURI) {
+        Log.info("Setting Base URI to: " + baseURI);
         CommonApiSteps.baseURI = baseURI;
     }
 
