@@ -5,7 +5,7 @@ Feature: Shopping Cart Functionality
     When user enters valid credentials
     And user clicks the login button
 
-  @shopping @regression
+  @shopping @smoke @regression
   Scenario: Add product to cart
     When user adds "Sauce Labs Backpack" to the cart
     Then the cart badge should show 1 item
